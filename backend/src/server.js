@@ -1,9 +1,15 @@
 // Importa el archivo 'configEnv.js' para cargar las variables de entorno
-const { PORT, HOST } = require("./config/configEnv.js");
+
+const { HOST, PORT} = require("./config/configEnv");
+
+
+
 // Importa el módulo 'cors' para agregar los cors
 const cors = require("cors");
 // Importa el módulo 'express' para crear la aplicacion web
 const express = require("express");
+//importa modulo para subir archivos
+const expressfileupload = require("express-fileupload");
 // Importamos morgan para ver las peticiones que se hacen al servidor
 const morgan = require("morgan");
 // Importa el módulo 'cookie-parser' para manejar las cookies
@@ -15,6 +21,7 @@ const { setupDB } = require("./config/configDB.js");
 // Importa el handler de errores
 const { handleFatalError, handleError } = require("./utils/errorHandler.js");
 const { createRoles, createUsers } = require("./config/initialSetup");
+
 
 /**
  * Inicia el servidor web
@@ -29,6 +36,10 @@ async function setupServer() {
     server.use(cors({ origin: "/" }));
     // Agregamos el middleware para el manejo de cookies
     server.use(cookieParser());
+    // Agregamos middleware para manejo de archivos
+    server.use(expressfileupload({
+      createParentPath: true
+    }));
     // Agregamos morgan para ver las peticiones que se hacen al servidor
     server.use(morgan("dev"));
     // Agrega el middleware para el manejo de datos en formato URL

@@ -8,6 +8,12 @@ const userRoutes = require("./user.routes.js");
 /** Enrutador de autenticación */
 const authRoutes = require("./auth.routes.js");
 
+/** Enrutador de ficha */
+const fichaRoutes = require( "./ficha.routes.js");
+
+/** Enrutador de archivo */
+const archivoRoutes = require('./archivo.routes');
+
 /** Middleware de autenticación */
 const authenticationMiddleware = require("../middlewares/authentication.middleware.js");
 
@@ -18,6 +24,10 @@ const router = express.Router();
 router.use("/users", authenticationMiddleware, userRoutes);
 // Define las rutas para la autenticación /api/auth
 router.use("/auth", authRoutes);
+// Define las rutas para la ficha
+router.use( "/ficha", fichaRoutes);
+// Define las rutas para archivo
+router.use('/file-upload', archivoRoutes);
 
 // Exporta el enrutador
 module.exports = router;

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "API con Node",
   "main": "src/server.js",
+
   "scripts": {
     "start": "nodemon src/server.js"
   },
@@ -11,20 +12,24 @@
     "backend",
     "http"
   ],
-  "author": "Camilo saez",
+  "author": "grupo asistencia social",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "2.4.3",
     "cookie-parser": "1.4.6",
     "cors": "2.8.5",
     "dotenv": "16.3.1",
+    "example-package": "^0.0.1",
     "express": "4.18.2",
+    "express-fileupload": "^1.4.1",
     "joi": "17.10.2",
     "jsonwebtoken": "9.0.2",
     "mongoose": "7.5.2",
     "morgan": "1.10.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "eslint": "8.50.0",
     "eslint-config-google": "0.14.0",
     "jsdoc": "4.0.2",

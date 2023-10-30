@@ -1,4 +1,6 @@
 "use strict";
+
+
 // Importa el modulo 'path' para obtener la ruta absoluta del archivo .env
 const path = require("path");
 
